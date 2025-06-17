@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    # Add production specific settings, e.g., command, no hot-reloading
+    env_file:
+      - ./backend/.env # Production should use a real .env
+    depends_on:
+      - db
+      - redis
+
+  frontend: # This service might not be needed if Nginx serves static files
+    build: ./frontend
+    # This service would typically build static files, then an Nginx service would serve them.
+    # Or, this could be a Node server if using SSR.
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443" # Assuming SSL termination at Nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro # Or a prod-specific nginx.conf
+      # - ./frontend/dist:/usr/share/nginx/html:ro # Example: serving static build
+      # - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - backend
+      # - frontend # If Nginx proxies to a Node frontend server
+
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_prod_data:/var/lib/postgresql/data/
+    env_file:
+      - ./backend/.env # For POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+
+volumes:
+  postgres_prod_data:

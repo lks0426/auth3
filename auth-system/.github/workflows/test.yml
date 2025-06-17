@@ -1,0 +1,31 @@
+# Basic GitHub Actions workflow for testing
+name: Run Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.11'
+    # Add steps to install backend dependencies and run tests
+    # - name: Install backend dependencies
+    #   run: pip install -r backend/requirements.txt && pip install -r backend/requirements-dev.txt
+    # - name: Run backend tests
+    #   run: pytest backend/app/tests
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    # Add steps to install frontend dependencies and run tests
+    # - name: Install frontend dependencies
+    #   run: npm ci --prefix frontend
+    # - name: Run frontend tests
+    #   run: npm test --prefix frontend
+    - name: Placeholder for tests
+      run: echo "Tests will run here"

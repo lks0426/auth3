@@ -1,0 +1,19 @@
+# Pytest for testing
+pytest
+pytest-cov
+pytest-asyncio
+
+# HTTPX for async requests in tests
+httpx
+
+# Faker for generating fake data
+Faker
+
+# Black for code formatting
+black
+
+# Flake8 for linting
+flake8
+
+# mypy for static type checking
+mypy

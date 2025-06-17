@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+.eggs/
+.egg-info/
+dist/
+build/
+*.egg
+*.sqlite3
+*.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/ # Common for frontend builds, but frontend/dist is already versioned by .gitkeep
+coverage/
+.npm/
+
+# Docker
+docker-compose.override.yml
+*.dockerignore
+docker-sync.yml
+
+# IDE / OS
+.idea/
+.vscode/
+*.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example # Keep .env.example files
+
+# Other
+secrets/
