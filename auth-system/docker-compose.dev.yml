@@ -19,7 +19,8 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
+      target: development  # 这一行很重要！
     ports:
       - "3000:3000" # Vite dev server port
     volumes:
