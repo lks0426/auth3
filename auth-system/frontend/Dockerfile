@@ -6,9 +6,8 @@ WORKDIR /app
 # Copy package.json and package-lock.json (or yarn.lock)
 COPY package*.json ./
 
-
-# Install dependencies including type definitions and Tailwind v4
-RUN npm install && npm install --save-dev @types/node @tailwindcss/postcss autoprefixer
+# Install dependencies
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .

@@ -1,6 +1,7 @@
 # FastAPI
 fastapi
 uvicorn[standard]
+python-multipart # For form data, often useful with FastAPI
 
 # Pydantic
 pydantic[email]
@@ -12,8 +13,8 @@ psycopg2-binary
 # Alembic
 alembic
 
-# Passlib for password hashing
-passlib[bcrypt]
+# Passlib for password hashing (using argon2)
+passlib[argon2]
 
 # Python-jose for JWT
 python-jose[cryptography]
@@ -23,3 +24,6 @@ python-dotenv
 
 # Tenacity for retrying operations
 tenacity
+
+# Redis client
+redis >= 4.0.0

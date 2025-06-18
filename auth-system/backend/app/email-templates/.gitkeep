@@ -1,0 +1,2 @@
+# This directory is intended for email templates (e.g., Jinja2).
+# For now, it might be empty if HTML content is generated directly in Python.

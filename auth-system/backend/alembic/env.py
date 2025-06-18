@@ -27,10 +27,15 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-# For now, we'll use None. This will be updated when models are defined.
-# from app.db.base_class import Base  # Adjust import path as per your project structure
-# target_metadata = Base.metadata
-target_metadata = None
+
+# For SQLModel, import models here to ensure they are registered with SQLModel.metadata
+# before target_metadata is assigned.
+from sqlmodel import SQLModel # SQLModel itself is the typical base for metadata
+# Import your models here to ensure they are registered with SQLModel's metadata
+from app.models.user import User # Adjust if your User model is named differently or not directly in user.py
+from app.models.auth import RefreshToken, LoginHistory, PasswordResetToken # Import new auth models
+
+target_metadata = SQLModel.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

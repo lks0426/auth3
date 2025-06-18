@@ -9,15 +9,5 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     }
-  },
-  server: {
-    host: '0.0.0.0', // 允许外部访问，Docker 容器必需
-    port: 3000,      // 明确指定端口
-    watch: {
-      usePolling: true, // Docker 中文件监听需要轮询
-    },
-  },
-  build: {
-    outDir: 'dist',  // 确保输出目录正确
   }
 })
