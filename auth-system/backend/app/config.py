@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     # JWT Settings
     SECRET_KEY: str = "a_very_secret_key_that_should_be_in_env_file_for_production"
     ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 15 # Changed from 30 to 15 minutes
     REFRESH_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7 # 7 days
 
     # Account Security Settings
